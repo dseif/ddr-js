@@ -1,0 +1,1 @@
+module.exports = {    entry: './js/ddr.js',    output: {        path: __dirname,        filename: 'bundle.js'    }};
