@@ -5,6 +5,8 @@
     </head>
     <body></body>
     <script>
-        new DDRJS(document.body);
+        (function (window) {
+            new DDRJS(document.body);
+        })(window);
     </script>
 </html>
