@@ -1,6 +1,8 @@
-module.exports = {
-    // Converts passed in degree to equivalent radian
-    degressToRadians: function (deg) {
-        return deg * Math.PI / 180;
-    }
-};
+// Converts passed in degree to equivalent radian
+function degreesToRadians(deg) {
+    return deg * Math.PI / 180;
+}
+
+export {
+	degreesToRadians
+}

@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.35",
+    "@babel/preset-env": "^7.0.0-beta.35",
+    "babel-loader": "8.0.0-beta.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "howler": "^2.0.7",
