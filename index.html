@@ -6,7 +6,16 @@
     <body></body>
     <script>
         (function (window) {
-            new DDRJS(document.body);
+            var game;
+
+            // Create new game and wait for it to be ready to use
+            game = new Game(document.body, function () {
+                // Load the song we want to play
+                game.loadSong('songs/Idol/Idol.sm', function () {
+                    // Start the game!
+                    game.start();
+                });
+            });
         })(window);
     </script>
 </html>

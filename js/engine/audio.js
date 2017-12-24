@@ -1,4 +1,4 @@
-var Howl = require('howler').Howl;
+import {Howl} from 'howler';
 
 module.exports = {
     load: function (fileName) {
