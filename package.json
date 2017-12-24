@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "howler": "^2.0.7",
+    "pixi.js": "^4.6.2",
+    "webpack-stream": "^4.0.0"
+  }
+}

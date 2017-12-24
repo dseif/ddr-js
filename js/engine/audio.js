@@ -1,4 +1,4 @@
-var Howl = require('../../vendor/howler.min.js').Howl;
+var Howl = require('howler').Howl;
 
 module.exports = {
     load: function (fileName) {
