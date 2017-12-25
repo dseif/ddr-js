@@ -70,7 +70,7 @@ class Game {
                 // Determine number of potential (not every line will contain a note) notes in this measure.
                 let numNotes = measure.length;
                 let measureContainer = this._stage.createContainer(0, 0);
-                let offsetNote = (this._stage.height) / numNotes;
+                let offsetNote = this._stage.height / numNotes;
                 let currentOffsetY = 0;
 
                 measureContainer.x = (this._stage.width - 500) / 2;
@@ -147,10 +147,22 @@ class Game {
         var isPlaying = false;
         var steps = this._steps;
         var scene = this._stage.scene;
+        var frameOffset;
+        var that = this;
 
         steps.meta.DISPLAYBPM = +steps.meta.DISPLAYBPM.substring(0, steps.meta.DISPLAYBPM.length - 1);
 
-        scene.ticker.speed = (this._stage.height - 75) / (steps.meta.DISPLAYBPM / 3);
+        function calculateFrameOffset() {
+            // Determine how far to shift the container each frame.
+            // First determine the Beats Per Second
+            var BPS = steps.meta.DISPLAYBPM / 60;
+            // Then determine the height of each measure. A measure contains 4 beats.
+            var PixelsPerBeat = that._stage.height / 4;
+            // Determine how many pixels we need to move each frame
+            return (BPS * PixelsPerBeat) / 60;
+        }
+
+        frameOffset = calculateFrameOffset();
         scene.ticker.add((delta) => {
             if (firstTime) {
                 // Wait until the audio starts playing begin animating the note stream
@@ -165,7 +177,7 @@ class Game {
                 return;
             }
 
-            this._stepContainer.y -= delta;
+            this._stepContainer.y -= frameOffset;
         });
     }
 }
